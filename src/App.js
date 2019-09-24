@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from './Card.js'
 import Filters from './Filters.js'
+// import { create } from 'istanbul-reports';
 // this  is really right app.. 
 
 class App extends Component {
 
   state =  {
     drinks: {},
-    search: ''
+    search: '',
+    filtered: true
   }
 
   componentDidMount(){
@@ -21,11 +23,28 @@ class App extends Component {
       })
   }
 
-  updateSearch = (input) => {
+  updateCocktailSearch = (input) => {
     this.setState({
       search: input
     })
   }
+
+  // findByAlcohol = (id) => {
+  //   if (!!this.state.drinks.cocktails){
+  //       const filtered = state.drinks.cocktails.filter(cocktail => {
+  //         return cocktail.alcohol_1_id === parseInt(id) || cocktail.alcohol_2_id === parseInt(id)
+  //       }) 
+  //       this.displayCards()
+  //     }
+  //   }
+
+  // createFilteredCards = (filtered) => {
+  //   if (this.state.filtered){
+  //     return filtered.map(cocktail => {
+  //       return <Card cocktail={cocktail} />
+  //     })
+  //   }
+  // }
 
   filteredAlcohol = () => {
       if (!!this.state.drinks.cocktails){
@@ -37,11 +56,20 @@ class App extends Component {
 
   createCards = (filtered) => {
     if (!!this.state.drinks.cocktails && this.state.search !== ''){
-      return filtered.map(cocktail => {
-        return <Card cocktail={cocktail} />
+      return filtered.map((cocktail, i) => {
+        return <Card cocktail={cocktail} key={i} />
       })
     }
   }
+  
+  // displayCards = (toggle) => {
+  //   if (!!toggle){
+  //     console.log('filtering')
+  //     return this.createFilteredCards(this.findByAlcohol()) 
+  //   } else {
+  //     return 
+  //   }
+  // }
 
   render(){
     return (
@@ -49,7 +77,11 @@ class App extends Component {
       <header>
         JOOSBar
       </header>
-        <Filters updateSearch={this.updateSearch} cocktails={this.state.drinks.cocktails}/>
+        <Filters updateSearch={this.updateCocktailSearch} 
+                  alcohols={this.state.drinks.alcohol} 
+                  cocktails={this.state.drinks.cocktails}
+                  findByAlcohol={this.findByAlcohol}
+                  />
         <div className="card-container">
           {this.createCards(this.filteredAlcohol())}
         </div>
