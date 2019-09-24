@@ -32,7 +32,7 @@ export default class CocktailFilter extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                 <label> Search Cocktail!
-                    <select onChange={this.handleChange}>
+                    <select className="dropdown" onChange={this.handleChange}>
                         {this.createOptions()}
                     </select>
                 </label>

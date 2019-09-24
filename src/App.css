@@ -1,10 +1,11 @@
 header {
   text-align:center;
   font-size: 2em;
-  color: rgb(0, 217, 255);
+  color: rgb(250, 255, 255);
+  text-shadow: 3px 2px rgb(8, 7, 7);
   font-weight: bold;
-  background-color: grey;
-  border: 2px dashed black;
+  background-image: url("https://images.unsplash.com/photo-1508253730651-e5ace80a7025?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  border: 5px solid grey;
   margin-bottom: 20px;
 }
 
@@ -40,4 +41,8 @@ img {
 .filter-container {
   display:flex;
   justify-content: space-between;
+}
+
+.dropdown {
+  min-width: 160px;
 }

@@ -33,7 +33,7 @@ export default class AlcoholFilter extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                 <label> Search Alcohol!
-                    <select onChange={this.handleChange}>
+                    <select className="dropdown" onChange={this.handleChange}>
                         {this.createOptions()}
                     </select>
                 </label>
