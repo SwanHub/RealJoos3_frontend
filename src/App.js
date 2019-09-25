@@ -69,7 +69,7 @@ class App extends Component {
     return (
       <div className="App">
       <header>
-        JOOSBar
+        <h1>JOOSBar</h1>
       </header>
         <Filters updateSearch={this.updateCocktailSearch} 
                   alcohols={this.state.drinks.alcohol} 
